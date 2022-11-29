@@ -1,0 +1,78 @@
+@import 'null.css';
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900&display=swap); /* тоже способ скачать стлили шрифта */
+.body{
+    /* font-family: Roboto; */     /* !!!!! - НЕ ПОЙМУ ПОЧЕМУ НЕ ДЕЙСВУЕТ НА .body А НА .wrapper ВЫХОДИТ  */
+}
+.wrapper{
+    overflow: hidden;
+    min-height: 100%;
+    background-color: rgb(29, 26, 26);
+    font-family: Roboto;
+}
+[class*="__countainer"]{
+    max-width: 1140px;
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+.main {
+}
+.block {
+
+}
+.block__countainer {
+}
+.block__items {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.block__item {
+    /*  */
+    padding: 0px 15px;
+    flex: 0 1 33.333%; /*ЭТО ТИПО ДЛЯ ТРЕХ КАРТОЧЕК ЧТОБ РОВНО ДЕЛИЛИ ПРОСТРАНСТВО НА ТРОИХ*/
+    /* background-color: darkgray; */
+}
+.item-block {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* "Действие №1 выравнивания кнопок" --ЭТО ЧТОБЫ ВЫРОВНИТЬ КНОПКИ  ИСКРИВИЛИСЬ ОНИ ИЗЗА ТОГО ЧТО ОДИН ЭЛЕМЕНТ УВЕЛИЧИЛ ТЕКСТ  */
+}
+.item-block__picture {
+    position: relative;
+    padding: 0px 0px 74.28% 0px; /*!!!! ЭТО важно. Заметь что мы четкой ширины и высоты картинке не давали (мы её задали 100% от ширины и высоты родителя), Вот это вот есть высота картинки а посути это отступ вниз для родителя картинки и этот отсуп служит высотой для нашей картинки. А вот ширина задана для .block__item {flex: 0 1 33.333%} */
+}
+.item-block__image {
+    object-fit: cover; /*Это совйство как и для bacground маштабирует картинку в блоке */
+    object-position: top; /*Данное свойство делает акцент с какой части картинки начинать тоесть с верху спарава и т.д*/
+    position: absolute;
+    width: 100%; /* Это ширина картинки нашей карточки она задана в процентах потому что процент берется от   ширины родителя а в нашем случае родителю задана ширина с помошь flex: 0 1 33.333%  тоесть третья часть. А вот и ГЛАВНОЕ если не задавать ширину то она будет стандартной и не будет адаптироваться */
+    height: 100%; /*Тут тоже самое что и с шириной */
+    left: 0px;
+    top: 0px;
+    border-radius: 30%;
+}
+.item-block__body {
+    background-color: rgb(39, 38, 37);
+    flex: 1 1 auto;/*Действие №2 выравнивания кнопок. даём БОДИ увеличиваться вместе с item-block */
+    display: flex;/* Действие №3 выравнивания кнопок. Делаем Боди флексом чтобы потом можно было текст с помошью fltx: 1 1 auto; давать занимать свободное пространство*/
+    flex-direction: column;/*Действие №3 выравнивания кнопок. Это чтобыв повернуть блоки обратно */
+}
+.item-block__title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    
+}
+.item-block__text {
+    color: darkgray;
+    font-weight: 700;
+    line-height: 150%;
+    flex: 1 1 auto; /*Действие №4 выравнивания кнопок. Даём и тексту занимать свободное пространство и этим мы отодвигаем кнопку вниз.  */
+}
+.item-block__button {
+    padding: 10px 15px;
+    background-color: green;
+    display: block;
+    text-align: center;
+    border-radius: 5px;
+}
